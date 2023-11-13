@@ -1,6 +1,6 @@
 :root {
   /* --blanco: #134062; */
-  --blanco: #ffffffe9;
+  --blanco: #ffffffdb;
   --primary: #f59e0b;
   --negro: #000;
 }
@@ -16,12 +16,40 @@ body {
   color: var(--blanco);
   font-size: 2rem;
 }
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.header img {
+  width: 5.5rem;
+  margin-right: -2rem;
+  margin-top: -4rem;
+}
 .titulo {
   text-align: center;
   font-size: 3rem;
   margin-top: 5rem;
 }
 
+.titulo span {
+  color: var(--primary);
+  display: block;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .header img {
+    margin-right: -2rem;
+    margin-top: -0.5rem;
+  }
+  .titulo span {
+    display: unset;
+    text-align: left;
+  }
+}
 .contenedor {
   max-width: 100rem;
   width: 95%;
@@ -58,13 +86,14 @@ body {
 .formulario input[type="text"],
 .formulario select {
   padding: 1rem;
-  background-color: transparent;
-  border: 0.3rem solid var(--blanco);
+  background-color: #000000aa;
+  border: 0.2rem solid var(--blanco);
   border-radius: 1rem;
   color: var(--blanco);
   font-weight: 400;
   font-size: 1.8rem;
 }
+
 .formulario input[type="submit"] {
   background-color: var(--primary);
   border: none;
@@ -72,10 +101,14 @@ body {
   font-weight: 700;
   font-size: 1.6rem;
   text-transform: uppercase;
-  cursor: pointer;
   padding: 1rem;
   margin-top: 2rem;
   border-radius: 1rem;
+  transition: all ease-in 0.3s;
+}
+.formulario input[type="submit"]:hover {
+  background-color: #d68c0d;
+  cursor: pointer;
 }
 .campo ::placeholder {
   color: var(--blanco);
