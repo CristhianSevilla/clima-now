@@ -1,5 +1,6 @@
 <script setup>
-import { reactive } from "vue";
+import { reactive, ref } from "vue";
+import Alerta from "./Alerta.vue";
 
 const busqueda = reactive({
   ciudad: "",
@@ -16,10 +17,20 @@ const paises = [
   { codigo: "CR", nombre: "Costa Rica" },
   { codigo: "ES", nombre: "España" },
 ];
+
+const error = ref("");
+
+const consultarClima = () => {
+  if (Object.values(busqueda).includes("")) {
+    error.value = "Todos los campos son obligatorios";
+  }
+
+  error.value = "";
+};
 </script>
 
 <template>
-  <form class="formulario">
+  <form class="formulario" @submit.prevent="consultarClima">
     <div class="campo">
       <label for="ciudad">Ciudad</label>
       <input
@@ -38,6 +49,9 @@ const paises = [
         </option>
       </select>
     </div>
+
+    <Alerta v-if="error">{{ error }}</Alerta>
+
     <input type="submit" value="Consultar Clima" />
   </form>
 </template>

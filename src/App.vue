@@ -5,7 +5,7 @@ import Formulario from "./components/Formulario.vue";
 <template>
   <div class="header">
     <img src="../public/favi.svg" alt="Logo" />
-    <h1 class="titulo"><Span>ClimaNow </Span> Buscador de clima</h1>
+    <h1 class="titulo"><span>ClimaNow </span> Buscador de clima</h1>
   </div>
   <div class="contenedor buscador-clima">
     <Formulario />
