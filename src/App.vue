@@ -13,6 +13,6 @@ const { obtenerClima, clima, mostrarClima } = useClima();
   </div>
   <div class="contenedor buscador-clima">
     <Formulario @obtener-clima="obtenerClima" />
-    <Clima v-if="mostrarClima" />
+    <Clima v-if="mostrarClima" :clima="clima" />
   </div>
 </template>

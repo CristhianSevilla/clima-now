@@ -24,9 +24,14 @@ export default function useClima() {
     return Object.values(clima.value).length > 0;
   });
 
+  const formatearTemperatura = (temperatura) => {
+    return Math.round(temperatura);
+  };
+
   return {
     obtenerClima,
     clima,
     mostrarClima,
+    formatearTemperatura,
   };
 }
