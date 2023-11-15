@@ -25,6 +25,7 @@ const error = ref("");
 const consultarClima = () => {
   if (Object.values(busqueda).includes("")) {
     error.value = "Todos los campos son obligatorios";
+    return;
   }
 
   error.value = "";
