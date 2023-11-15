@@ -2,6 +2,8 @@
 import { reactive, ref } from "vue";
 import Alerta from "./Alerta.vue";
 
+const emit = defineEmits(["obtener-clima"]);
+
 const busqueda = reactive({
   ciudad: "",
   pais: "",
@@ -26,6 +28,8 @@ const consultarClima = () => {
   }
 
   error.value = "";
+
+  emit("obtener-clima");
 };
 </script>
 
