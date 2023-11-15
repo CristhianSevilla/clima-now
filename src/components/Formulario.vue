@@ -4,33 +4,19 @@ import Alerta from "./Alerta.vue";
 
 const emit = defineEmits(["obtener-clima"]);
 
-const busqueda = reactive({
-  ciudad: "",
-  pais: "",
-});
-
-const paises = [
-  { codigo: "US", nombre: "Estados Unidos" },
-  { codigo: "MX", nombre: "México" },
-  { codigo: "EC", nombre: "Ecuador" },
-  { codigo: "CA", nombre: "Canada" },
-  { codigo: "AR", nombre: "Argentina" },
-  { codigo: "CO", nombre: "Colombia" },
-  { codigo: "CR", nombre: "Costa Rica" },
-  { codigo: "ES", nombre: "España" },
-];
+const ciudad = ref("");
 
 const error = ref("");
 
 const consultarClima = () => {
-  if (Object.values(busqueda).includes("")) {
-    error.value = "Todos los campos son obligatorios";
+  if (!ciudad.value) {
+    error.value = "Escribe el nombre de la ciudad";
     return;
   }
 
   error.value = "";
 
-  emit("obtener-clima", busqueda);
+  emit("obtener-clima", ciudad.value);
 };
 </script>
 
@@ -41,18 +27,9 @@ const consultarClima = () => {
       <input
         type="text"
         id="ciudad"
-        placeholder="Ciudad"
-        v-model="busqueda.ciudad"
+        placeholder="Ej. Las vegas"
+        v-model="ciudad"
       />
-    </div>
-    <div class="campo">
-      <label for="pais">País</label>
-      <select id="pais" v-model="busqueda.pais">
-        <option value="">Seleccione un país</option>
-        <option v-for="pais in paises" :value="pais.codigo">
-          {{ pais.nombre }}
-        </option>
-      </select>
     </div>
 
     <Alerta v-if="error">{{ error }}</Alerta>
