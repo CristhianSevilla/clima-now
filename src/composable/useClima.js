@@ -2,8 +2,8 @@ import { ref, computed } from "vue";
 import axios from "axios";
 
 const clima = ref({});
-
 const cargando = ref(false);
+const error = ref("");
 
 export default function useClima() {
   const obtenerClima = async (ciudad) => {
@@ -12,14 +12,15 @@ export default function useClima() {
     const key = import.meta.env.VITE_API_KEY;
     cargando.value = true;
     clima.value = {};
+    error.value = "";
 
     try {
       //obtener el clima
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${key}&units=metric`;
       const { data } = await axios(url);
       clima.value = data;
-    } catch (error) {
-      console.log(error);
+    } catch {
+      error.value = "Lo sentimos, no pudimos encontrar la ciudad :(";
     } finally {
       cargando.value = false;
     }
@@ -39,5 +40,6 @@ export default function useClima() {
     mostrarClima,
     formatearTemperatura,
     cargando,
+    error,
   };
 }
