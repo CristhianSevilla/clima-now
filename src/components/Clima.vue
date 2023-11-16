@@ -28,16 +28,16 @@ const urlImagen = (nombreImagen) => {
       <div>
         <h2 class="ciudad">{{ clima.name }}, {{ clima.sys.country }}</h2>
         <p class="actual">{{ formatearTemperatura(clima.main.temp) }}&deg;C</p>
-        <p>
-          Sensación térmica de
-          {{ formatearTemperatura(clima.main.feels_like) }}&deg;C
-        </p>
       </div>
       <div>
         <img :src="urlImagen(clima.weather[0].icon)" alt="Icono'" />
         <p class="condicion">{{ clima.weather[0].description }}</p>
       </div>
     </div>
+    <p class="sensacion">
+      Sensación térmica de
+      {{ formatearTemperatura(clima.main.feels_like) }}&deg;C
+    </p>
     <div class="temperaturas">
       <p>
         Min:

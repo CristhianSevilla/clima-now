@@ -28,7 +28,7 @@ const consultarClima = () => {
         <input
           type="text"
           id="ciudad"
-          placeholder="Ej. Las vegas"
+          placeholder="Ej. Las Vegas"
           v-model="ciudad"
         />
       </div>

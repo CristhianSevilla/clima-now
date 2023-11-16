@@ -8,12 +8,13 @@ html {
   font-size: 62.5%;
 }
 body {
+  background-color: #000;
   background-image: url(../img/bg_clima.jpg);
   background-position: top left;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  min-height: 100vh;
   font-family: "Outfit", sans-serif;
   color: var(--blanco);
   font-size: 2rem;
@@ -73,9 +74,9 @@ body {
   padding: 3rem;
   margin-top: 5rem;
   border-radius: 1rem;
-  -webkit-box-shadow: 6px 6px 4px 0px rgba(16, 53, 81, 0.45);
-  -moz-box-shadow: 6px 6px 4px 0px rgba(17, 50, 75, 0.45);
-  box-shadow: 6px 6px 4px 0px rgba(15, 47, 72, 0.45);
+  -webkit-box-shadow: 6px 6px 4px 0px rgba(14, 42, 62, 0.45);
+  -moz-box-shadow: 6px 6px 4px 0px rgba(17, 39, 57, 0.45);
+  box-shadow: 6px 6px 4px 0px rgba(28, 40, 49, 0.45);
 }
 .formulario,
 .campo {
@@ -87,8 +88,7 @@ body {
   font-size: 2rem;
   font-weight: 700;
 }
-.formulario input[type="text"],
-.formulario select {
+.formulario input[type="text"] {
   padding: 1rem;
   background-color: #000000aa;
   border: 0.2rem solid var(--blanco);
@@ -96,6 +96,10 @@ body {
   color: var(--blanco);
   font-weight: 400;
   font-size: 1.8rem;
+}
+
+.formulario input[type="text"]::placeholder {
+  color: rgba(253, 253, 253, 0.404);
 }
 
 .formulario input[type="submit"] {
@@ -124,6 +128,10 @@ body {
   margin: 0;
   font-size: 1.5rem;
 }
+.sensacion {
+  font-size: 1.5rem;
+  margin: 0;
+}
 .tiempo {
   display: grid;
   grid-template-columns: 7fr 3fr;
@@ -149,6 +157,7 @@ body {
 .tiempo .condicion {
   color: var(--primary);
   text-transform: capitalize;
+  text-align: center;
 }
 
 .temperaturas {
