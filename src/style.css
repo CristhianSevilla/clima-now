@@ -126,7 +126,7 @@ body {
 .tiempo {
   display: grid;
   grid-template-columns: 7fr 3fr;
-  gap: 4rem;
+  gap: 3rem;
 }
 .tiempo p {
   margin: 0;
@@ -171,5 +171,5 @@ body {
 .condiciones {
   display: flex;
   justify-content: space-around;
-  gap: 5rem;
+  gap: 4rem;
 }
