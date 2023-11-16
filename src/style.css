@@ -1,7 +1,7 @@
 :root {
   /* --blanco: #134062; */
   --blanco: #ffffffdb;
-  --primary: #f59e0b;
+  --primary: rgb(252, 172, 34);
   --negro: #000;
 }
 html {
@@ -22,18 +22,19 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 3rem;
 }
-
 .header img {
   width: 5.5rem;
   margin-right: -2rem;
   margin-top: -4rem;
+  margin-top: -100px;
+  animation: moverIcono 3s ease forwards;
 }
 .titulo {
   text-align: center;
   font-size: 3rem;
-  margin-top: 5rem;
+  margin-top: -100px;
+  animation: moverHeader 1s ease forwards;
 }
 
 .titulo span {
@@ -126,11 +127,15 @@ body {
 .tiempo {
   display: grid;
   grid-template-columns: 7fr 3fr;
-  gap: 3rem;
+  gap: 2rem;
+  margin-top: -100px;
+  animation: moverResultado 1s ease forwards;
 }
 .tiempo p {
   margin: 0;
+  font-size: 1.5rem;
 }
+
 .tiempo .ciudad {
   font-size: 2.2rem;
 }
@@ -143,6 +148,7 @@ body {
 
 .tiempo .condicion {
   color: var(--primary);
+  text-transform: capitalize;
 }
 
 .temperaturas {
@@ -164,12 +170,38 @@ body {
 }
 .info p {
   font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
 }
 .info p span {
   font-weight: 600;
 }
+
 .condiciones {
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 4rem;
+}
+@keyframes moverIcono {
+  to {
+    margin-top: 0rem; /* posición final real del Icono */
+  }
+}
+
+@media (min-width: 768px) {
+  @keyframes moverIcono {
+    to {
+      margin-top: 3.5rem; /* posición final real del header */
+    }
+  }
+}
+@keyframes moverHeader {
+  to {
+    margin-top: 9rem; /* posición final real del header */
+  }
+}
+@keyframes moverResultado {
+  to {
+    margin-top: 0rem; /* posición final real del header */
+  }
 }

@@ -15,7 +15,7 @@ export default function useClima() {
 
     try {
       //obtener el clima
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${key}&units=metric`;
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${key}&units=metric&lang=es`;
       const { data } = await axios(url);
       clima.value = data;
     } catch {
