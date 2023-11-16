@@ -10,7 +10,7 @@ const error = ref("");
 
 const consultarClima = () => {
   if (!ciudad.value) {
-    error.value = "Escribe el nombre de la ciudad";
+    error.value = "Escribe el nombre de una ciudad";
     return;
   }
 
@@ -22,18 +22,20 @@ const consultarClima = () => {
 
 <template>
   <form class="formulario" @submit.prevent="consultarClima">
-    <div class="campo">
-      <label for="ciudad">Ciudad</label>
-      <input
-        type="text"
-        id="ciudad"
-        placeholder="Ej. Las vegas"
-        v-model="ciudad"
-      />
+    <div class="sombra">
+      <div class="campo">
+        <label for="ciudad">Ciudad</label>
+        <input
+          type="text"
+          id="ciudad"
+          placeholder="Ej. Las vegas"
+          v-model="ciudad"
+        />
+      </div>
+
+      <Alerta v-if="error">{{ error }}</Alerta>
+
+      <input type="submit" value="Consultar Clima" />
     </div>
-
-    <Alerta v-if="error">{{ error }}</Alerta>
-
-    <input type="submit" value="Consultar Clima" />
   </form>
 </template>
